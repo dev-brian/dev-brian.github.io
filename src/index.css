@@ -1,0 +1,344 @@
+@import "tailwindcss";
+
+/* ═══════════════════════════════════════════════════════════════
+   🎨  DESIGN SYSTEM — Brian's Dev Portfolio
+   ═══════════════════════════════════════════════════════════════
+   Paleta: Deep Space Blue → Electric Violet
+   Modo:   Dark-first (premium developer aesthetic)
+   Fonts:  Inter (UI) + JetBrains Mono (code)
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ─── Tailwind v4 Theme Tokens ──────────────────────────────── */
+@theme {
+  /* ── Typography ── */
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "Cascadia Code", monospace;
+
+  /* ── Background colors ── */
+  --color-bg-primary: #0a0a12;
+  --color-bg-secondary: #0f0f1a;
+  --color-bg-tertiary: #141422;
+  --color-bg-card: #16162a;
+  --color-bg-elevated: #1a1a35;
+
+  /* ── Accent: Electric Blue ── */
+  --color-blue-50: #e8f1ff;
+  --color-blue-100: #d5e4ff;
+  --color-blue-200: #b3cdff;
+  --color-blue-300: #7eaaff;
+  --color-blue-400: #4a85ff;
+  --color-blue-500: #2563eb;
+  --color-blue-600: #1a4fd4;
+  --color-blue-700: #153faa;
+  --color-blue-800: #17358c;
+  --color-blue-900: #0f2460;
+
+  /* ── Accent: Cosmic Violet ── */
+  --color-violet-50: #f3eeff;
+  --color-violet-100: #e9deff;
+  --color-violet-200: #d4bfff;
+  --color-violet-300: #b794ff;
+  --color-violet-400: #9f6cff;
+  --color-violet-500: #8b5cf6;
+  --color-violet-600: #7c3aed;
+  --color-violet-700: #6d28d9;
+  --color-violet-800: #5b21b6;
+  --color-violet-900: #3b0f7a;
+
+  /* ── Accent: Nebula Purple (mezcla intermedia) ── */
+  --color-nebula-400: #6e78ff;
+  --color-nebula-500: #5a5ef0;
+  --color-nebula-600: #4845d4;
+
+  /* ── Text colors ── */
+  --color-text-primary: #f0f0f8;
+  --color-text-secondary: #a0a0c0;
+  --color-text-muted: #6a6a90;
+  --color-text-accent: #9f6cff;
+
+  /* ── Borders ── */
+  --color-border-default: rgba(160, 160, 192, 0.12);
+  --color-border-subtle: rgba(160, 160, 192, 0.06);
+  --color-border-accent: rgba(139, 92, 246, 0.35);
+
+  /* ── Glassmorphism ── */
+  --color-glass: rgba(22, 22, 42, 0.6);
+  --color-glass-border: rgba(160, 160, 192, 0.10);
+
+  /* ── Gradients (referenciables como bg-gradient-*) ── */
+  --color-gradient-start: #2563eb;
+  --color-gradient-mid: #6e78ff;
+  --color-gradient-end: #8b5cf6;
+
+  /* ── Status / Semantic ── */
+  --color-success: #34d399;
+  --color-warning: #fbbf24;
+  --color-error: #f87171;
+  --color-info: #60a5fa;
+
+  /* ── Shadows ── */
+  --shadow-glow-blue: 0 0 40px rgba(37, 99, 235, 0.15);
+  --shadow-glow-violet: 0 0 40px rgba(139, 92, 246, 0.15);
+  --shadow-glow-combined: 0 0 60px rgba(37, 99, 235, 0.10), 0 0 60px rgba(139, 92, 246, 0.10);
+  --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.3);
+  --shadow-elevated: 0 8px 40px rgba(0, 0, 0, 0.4);
+
+  /* ── Animations ── */
+  --animate-fade-in: fade-in 0.6s ease-out both;
+  --animate-slide-up: slide-up 0.6s ease-out both;
+  --animate-glow-pulse: glow-pulse 3s ease-in-out infinite;
+  --animate-float: float 6s ease-in-out infinite;
+
+  /* ── Spacing Scale (extras útiles) ── */
+  --spacing-18: 4.5rem;
+  --spacing-88: 22rem;
+  --spacing-128: 32rem;
+
+  /* ── Border Radius ── */
+  --radius-2xl: 1rem;
+  --radius-3xl: 1.5rem;
+  --radius-4xl: 2rem;
+}
+
+/* ─── Keyframe Animations ───────────────────────────────────── */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes glow-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(139, 92, 246, 0.15), 0 0 40px rgba(37, 99, 235, 0.08);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(139, 92, 246, 0.3), 0 0 60px rgba(37, 99, 235, 0.15);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* ─── Base Styles ───────────────────────────────────────────── */
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-sans);
+    background-color: var(--color-bg-primary);
+    color: var(--color-text-primary);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* ── Headings ── */
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--color-text-primary);
+    letter-spacing: -0.02em;
+  }
+
+  h1 {
+    font-size: clamp(2.25rem, 5vw, 3.75rem);
+  }
+
+  h2 {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+  }
+
+  h3 {
+    font-size: clamp(1.25rem, 3vw, 1.75rem);
+  }
+
+  p {
+    color: var(--color-text-secondary);
+    line-height: 1.75;
+  }
+
+  a {
+    color: var(--color-violet-400);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  a:hover {
+    color: var(--color-blue-400);
+  }
+
+  code {
+    font-family: var(--font-mono);
+    font-size: 0.875em;
+    padding: 0.15em 0.4em;
+    border-radius: 0.375rem;
+    background-color: var(--color-bg-elevated);
+    color: var(--color-violet-300);
+  }
+
+  /* ── Scrollbar personalizado ── */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--color-bg-primary);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-violet-700);
+    border-radius: 999px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-violet-500);
+  }
+
+  /* ── Selection ── */
+  ::selection {
+    background-color: rgba(139, 92, 246, 0.3);
+    color: #fff;
+  }
+}
+
+/* ─── Utility Classes ───────────────────────────────────────── */
+@layer utilities {
+  /* Gradient text (para títulos hero) */
+  .text-gradient {
+    background: linear-gradient(135deg, var(--color-blue-400), var(--color-nebula-400), var(--color-violet-400));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Gradient text animado */
+  .text-gradient-animated {
+    background: linear-gradient(
+      270deg,
+      var(--color-blue-400),
+      var(--color-violet-400),
+      var(--color-nebula-400),
+      var(--color-blue-400)
+    );
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradient-shift 6s ease infinite;
+  }
+
+  /* Glass card */
+  .glass {
+    background: var(--color-glass);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    border: 1px solid var(--color-glass-border);
+    border-radius: var(--radius-2xl);
+  }
+
+  /* Glow border (hover effect para cards) */
+  .glow-border {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .glow-border::before {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(
+      135deg,
+      var(--color-blue-500),
+      transparent 40%,
+      transparent 60%,
+      var(--color-violet-500)
+    );
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    -webkit-mask-composite: xor;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+
+  .glow-border:hover::before {
+    opacity: 1;
+  }
+
+  /* Noise background texture (sutil) */
+  .bg-noise {
+    position: relative;
+  }
+
+  .bg-noise::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    opacity: 0.03;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* Section divider gradient line */
+  .divider-glow {
+    height: 1px;
+    border: none;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      var(--color-blue-500),
+      var(--color-violet-500),
+      transparent
+    );
+    opacity: 0.4;
+  }
+}
