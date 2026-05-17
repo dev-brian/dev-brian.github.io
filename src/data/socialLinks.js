@@ -2,33 +2,33 @@
  * ═══════════════════════════════════════════════════════════
  *  🔗  socialLinks.js — Tus redes sociales y contacto
  * ═══════════════════════════════════════════════════════════
- *  Se usan tanto en el Navbar como en el Footer.
- *  Centralizar esto evita duplicar links en varios archivos.
  */
 
 export const socialLinks = [
   {
     name: "GitHub",
-    url: "https://github.com/tu-usuario",  // ← Cambia esto
+    url: "https://github.com/dev-brian",
     icon: "github",
   },
   {
     name: "LinkedIn",
-    url: "https://linkedin.com/in/tu-perfil",  // ← Cambia esto
+    url: "https://www.linkedin.com/in/brian-octavio-romero-arellano-a3ab10310",
     icon: "linkedin",
   },
   {
     name: "Email",
-    url: "mailto:tu@email.com",  // ← Cambia esto
+    url: "mailto:dev.brianoctavio@gmail.com",
     icon: "mail",
   },
 ]
 
-// Info general del portafolio (usada en Hero, About, meta tags, etc.)
 export const personalInfo = {
   name: "Brian",
-  role: "Desarrollador Full Stack",  // o "Ingeniero de Software", etc.
-  tagline: "Creando experiencias digitales que impactan",
+  fullName: "Brian Octavio Romero Arellano",
+  role: "Estudiante de Ingeniería en Software",
+  tagline: "Entusiasta de la tecnología · Construyendo el futuro, un commit a la vez",
+  bio: "Soy estudiante de ingeniería apasionado por el desarrollo de software y la innovación tecnológica. Me muevo entre el frontend y el backend, disfruto explorar nuevas herramientas y frameworks, y siempre estoy al día con los últimos lanzamientos del ecosistema tech. Mi enfoque: crear soluciones reales con código limpio y diseño intencional.",
   location: "México",
   availableForWork: true,
+  email: "dev.brianoctavio@gmail.com",
 }
