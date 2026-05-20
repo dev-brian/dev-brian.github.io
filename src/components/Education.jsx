@@ -1,5 +1,9 @@
 import SectionTitle from './ui/SectionTitle'
 import GlassCard from './ui/GlassCard'
+import certEnglishFundamentals from '../assets/certificates/Certificate English Fundamentals - Boost your job search.pdf'
+import certEnglishNetworking from '../assets/certificates/Certificate English Fundamentals Successful Networking and Interviews.pdf'
+import certGoogleAI from '../assets/certificates/Certificate Google Artificial intelligence and productivity.pdf'
+import certResponsiblePrompting from '../assets/certificates/Certificate Responsible prompting maximize AI in your Business.pdf'
 
 /*
  * Education.jsx — Formación, certificaciones y experiencia
@@ -26,8 +30,30 @@ const experience = [
 ]
 
 const certifications = [
-  // Agrega tus certificaciones aquí:
-  // { title: "Nombre del curso", institution: "Plataforma", year: "2025" },
+  { 
+    title: "English Fundamentals - Boost your job search and CV", 
+    institution: "Certificación", 
+    year: "10 Dic 2025",
+    link: certEnglishFundamentals 
+  },
+  { 
+    title: "English Fundamentals: Successful Networking and Interviews", 
+    institution: "Certificación", 
+    year: "21 Nov 2025",
+    link: certEnglishNetworking 
+  },
+  { 
+    title: "Google: Artificial intelligence and productivity", 
+    institution: "Google", 
+    year: "25 Sep 2025",
+    link: certGoogleAI 
+  },
+  { 
+    title: "Responsible prompting: maximize AI in your business", 
+    institution: "Certificación", 
+    year: "23 Oct 2025",
+    link: certResponsiblePrompting 
+  },
 ]
 
 function Education() {
@@ -61,10 +87,17 @@ function Education() {
             {certifications.length > 0 ? (
               <div className="space-y-4">
                 {certifications.map((cert, index) => (
-                  <GlassCard key={index} hover={false}>
-                    <p className="text-text-primary font-semibold">{cert.title}</p>
-                    <p className="text-text-muted text-sm">{cert.institution} · {cert.year}</p>
-                  </GlassCard>
+                  <a href={cert.link} target="_blank" rel="noopener noreferrer" key={index} className="block transition-transform hover:-translate-y-1">
+                    <GlassCard hover={true}>
+                      <div className="flex justify-between items-start">
+                        <div>
+                          <p className="text-text-primary font-semibold">{cert.title}</p>
+                          <p className="text-text-muted text-sm">{cert.institution} · {cert.year}</p>
+                        </div>
+                        <span className="text-text-muted opacity-50 group-hover:opacity-100 transition-opacity">↗</span>
+                      </div>
+                    </GlassCard>
+                  </a>
                 ))}
               </div>
             ) : (

@@ -11,6 +11,7 @@ import { personalInfo } from '../data/socialLinks'
  * - CTAs (Contactar + Ver proyectos)
  * - Badge de "Disponible para trabajar"
  */
+import profilePic from '../assets/images/profile-picture.jpg'
 
 function Hero() {
   return (
@@ -28,8 +29,8 @@ function Hero() {
         {/* Avatar placeholder */}
         <div className="mb-8 inline-block">
           <div className="w-32 h-32 rounded-full bg-gradient-to-br from-blue-500 via-nebula-500 to-violet-600 p-[3px] animate-glow-pulse">
-            <div className="w-full h-full rounded-full bg-bg-primary flex items-center justify-center">
-              <span className="text-4xl">👨‍💻</span>
+            <div className="w-full h-full rounded-full bg-bg-primary flex items-center justify-center overflow-hidden">
+              <img src={profilePic} alt="Profile" className="w-full h-full object-cover" />
             </div>
           </div>
         </div>

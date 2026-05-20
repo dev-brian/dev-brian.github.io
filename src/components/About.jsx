@@ -1,5 +1,6 @@
 import SectionTitle from './ui/SectionTitle'
 import { personalInfo } from '../data/socialLinks'
+import profilePic from '../assets/images/profile-picture.jpg'
 
 /*
  * About.jsx — Sección "Sobre mí"
@@ -21,11 +22,7 @@ function About() {
             <div className="relative">
               <div className="w-64 h-64 rounded-3xl bg-gradient-to-br from-blue-500/20 via-nebula-500/10 to-violet-600/20 p-[2px]">
                 <div className="w-full h-full rounded-3xl bg-bg-secondary flex items-center justify-center overflow-hidden">
-                  {/* Placeholder — reemplaza con tu foto */}
-                  <div className="text-center">
-                    <span className="text-7xl block mb-2">🧑‍💻</span>
-                    <span className="text-text-muted text-xs font-mono">tu foto aquí</span>
-                  </div>
+                  <img src={profilePic} alt="Perfil" className="w-full h-full object-cover" />
                 </div>
               </div>
               {/* Decorative dots */}
