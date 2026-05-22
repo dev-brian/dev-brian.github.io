@@ -7,7 +7,7 @@ import GlassCard from './ui/GlassCard'
  * - title, description, tags, image, liveUrl, repoUrl, featured, context
  */
 
-function ProjectCard({ title, description, tags, image, liveUrl, repoUrl, featured, context }) {
+function ProjectCard({ title, description, tags, image, liveUrl, liveUrlLabel, repoUrl, featured, context }) {
   return (
     <GlassCard className={featured ? "md:col-span-2" : ""}>
       {/* Header con contexto */}
@@ -73,7 +73,7 @@ function ProjectCard({ title, description, tags, image, liveUrl, repoUrl, featur
               <polyline points="15 3 21 3 21 9" />
               <line x1="10" y1="14" x2="21" y2="3" />
             </svg>
-            Demo
+            {liveUrlLabel || "Demo"}
           </a>
         )}
         {!repoUrl && !liveUrl && (

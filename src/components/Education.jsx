@@ -12,10 +12,17 @@ import certResponsiblePrompting from '../assets/certificates/Certificate Respons
 const education = [
   {
     type: "education",
-    title: "Ingeniería en Software",
+    title: "Ingeniería en Desarrollo de Software",
     institution: "Universidad",
     period: "En curso",
-    description: "Formación en desarrollo de software, bases de datos, arquitectura de sistemas y metodologías ágiles.",
+    description: "Formación avanzada en desarrollo de software, arquitectura de sistemas, gestión de proyectos y metodologías ágiles.",
+  },
+  {
+    type: "education",
+    title: "TSU en Desarrollo de Software Multiplataforma",
+    institution: "Universidad",
+    period: "Titulado",
+    description: "Formación especializada en desarrollo de aplicaciones multiplataforma, bases de datos y tecnologías web.",
   },
 ]
 
